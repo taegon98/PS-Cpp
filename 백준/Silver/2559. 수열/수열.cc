@@ -4,17 +4,16 @@
 
 using namespace std;
 
-int arr[100001];
 int psum[100001];
 
 int main() {
-	int N, K, max;
+	int N, K, max, tmp;
 
 	cin >> N >> K;
 
 	for (int i = 1; i <= N; i++) {
-		cin >> arr[i];
-		psum[i] = psum[i - 1] + arr[i];
+		cin >> tmp;
+		psum[i] = psum[i - 1] + tmp;
 	}
 	
 	max = psum[K] - psum[0];
