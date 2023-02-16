@@ -27,14 +27,11 @@ int main() {
 			int pos = s.find(' ');
 
 			string tmp = s.substr(pos + 1);
-			if (mp.find(tmp) == mp.end()) {
-				mp.insert(make_pair(tmp, 1));
-			}
-			else mp[tmp]++;
+			mp[tmp]++;
 		}
 
-		for (auto iter = mp.begin(); iter != mp.end(); iter++) {
-			tot *= (iter->second + 1);
+		for (auto iter : mp) {
+			tot *= (iter.second + 1);
 		}
 		cout << tot - 1 << "\n";
 	}
