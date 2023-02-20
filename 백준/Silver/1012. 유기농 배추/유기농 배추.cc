@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include <stack>
 #include <string.h>
 #define MAX 54
 using namespace std;
@@ -11,13 +10,13 @@ bool visited[MAX][MAX] = { false };
 int dr[4] = { -1,1,0,0 };
 int dc[4] = { 0,0,-1,1 };
 
-void dfs(int x, int y) {
+void dfs(int y, int x) {
 
-	visited[x][y] = true;
+	visited[y][x] = true;
 
 	for (int d = 0; d < 4; d++) {
-		int ny = x + dr[d];
-		int nx = y + dc[d];
+		int ny = y + dr[d];
+		int nx = x + dc[d];
 
 		if (nx >= 0 and nx < M and ny >= 0 and ny < N) {
 			if (!visited[ny][nx] and graph[ny][nx] == 1)
