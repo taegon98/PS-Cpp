@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string.h>
 #define MAX 104
@@ -49,5 +48,6 @@ int main() {
 		if (ret < cnt) ret = cnt;
 	}
 	cout << ret;
+
 	return 0;
 }
