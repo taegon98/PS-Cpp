@@ -6,13 +6,12 @@
 using namespace std;
 
 vector<string> v;
-vector<string> v2;
+string s, ret;
 
 void to_int() {
-	for (auto iter : v) {
-		while (iter.size() > 1 and iter[0] == '0') iter.erase(iter.begin());
-		v2.push_back(iter);
-	}
+	while (ret.size() > 1 and ret[0] == '0') ret.erase(ret.begin());
+	v.push_back(ret);
+	ret.clear();
 }
 
 bool cmp(string a, string b) {
@@ -21,35 +20,24 @@ bool cmp(string a, string b) {
 }
 
 int main() {
-	long long N;
-	string s, ret;
-	
-	
+	int N;
 	cin >> N;
 
+
 	for (int i = 0; i < N; i++) {
-		char prev = ' ';
 		cin >> s;
 
 		for (int j = 0; j < s.size(); j++) {
 			if (isdigit(s[j])) {
 				ret += s[j];
 			}
-			if (isdigit(prev) and isalpha(s[j])) {
-				v.push_back(ret);
-				ret.clear();
-			}
-			prev = s[j];
+			else if (ret.size()) to_int();
 		}
-
-		if (ret.size()) {
-			v.push_back(ret);
-			ret.clear();
-		}
+		if (ret.size()) to_int();
 	}
-	to_int();
-	sort(v2.begin(), v2.end(), cmp);
-	for (auto iter : v2) {
+
+	sort(v.begin(), v.end(), cmp);
+	for (string iter : v) {
 		cout << iter << "\n";
 	}
 	return 0; 
