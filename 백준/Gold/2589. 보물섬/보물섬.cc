@@ -26,7 +26,7 @@ void bfs(int sy, int sx) {
 
 	while (!q.empty()) {
 		y = q.front().first;
-		x = q.front().second; 
+		x = q.front().second;
 		q.pop();
 
 		for (int d = 0; d < 4; d++) {
@@ -40,13 +40,13 @@ void bfs(int sy, int sx) {
 				}
 			}
 		}
-	}	
+	}
 }
 
 int main() {
 	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 	cin >> r >> c;
-	
+
 	for (int i = 0; i < r; i++) {
 		for (int j = 0; j < c; j++)
 			cin >> graph[i][j];
@@ -56,7 +56,7 @@ int main() {
 			if (graph[i][j] == 'L') {
 				bfs(i, j);
 				ret = max(check(), ret);
-				for (int k = 0; k < 54; k++) memset(visited[k], 0, sizeof(int) * 54);
+				memset(visited, 0, sizeof(visited));
 			}
 		}
 	}
