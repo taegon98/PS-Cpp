@@ -5,7 +5,7 @@
 #include <string.h>
 using namespace std;
 
-int N, L, R, u, tot, cnt, avg, ret;
+int N, L, R, u, tot, cnt, ret, x, y;
 int graph[54][54];
 bool visited[54][54] = { false };
 int dy[4] = { -1,1,0,0 };
@@ -14,7 +14,6 @@ vector<pair<int, int>> v;
 
 int bfs(int sy, int sx) {
 	bool flag = false;
-	int x, y;
 	tot = 0, cnt = 1;
 
 	queue<pair<int, int>> q;
@@ -45,10 +44,6 @@ int bfs(int sy, int sx) {
 	else return 0;
 }
 
-void border() {
-	for (pair<int, int> there : v) graph[there.first][there.second] = avg;
-}
-
 int main() {
 	cin >> N >> L >> R;
 
@@ -63,8 +58,7 @@ int main() {
 					int tmp = bfs(i, j);
 					if (tmp) {
 						u += tmp;
-						avg = tot / cnt;
-						border();
+						for (pair<int, int> there : v) graph[there.first][there.second] = tot / cnt;
 					}
 					v.clear();
 				}
