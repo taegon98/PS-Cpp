@@ -29,7 +29,6 @@ void bfs(int x, int y, int z) {
 		int c = q.front().c;
 		q.pop();
 
-		if (visited[0][0][0]) break;
 		for (int d = 0; d < 6; d++) {
 			int na = max(0, a - arr[d][0]);
 			int nb = max(0, b - arr[d][1]);
