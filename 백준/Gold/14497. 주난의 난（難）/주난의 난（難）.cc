@@ -19,15 +19,10 @@ void bfs(int sy, int sx) {
 	while (!q.empty()) {
 		y = q.front().first; x = q.front().second;
 		q.pop();
-		if (y == x_2 and x == y_2) {
-			ok = true;
-			return;
-		}
-
 		for (int d = 0; d < 4; d++) {
 			ny = y + dy[d];
 			nx = x + dx[d];
-			if (ny == x_2 and nx == y_2) {
+			if (graph[ny][nx] == '#') {
 				ok = true;
 				return;
 			}
