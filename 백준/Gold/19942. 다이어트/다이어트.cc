@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
 using namespace std;
 
@@ -68,7 +67,7 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		cin >> element[i].p >> element[i].f >> element[i].s >> element[i].v >> element[i].c;
 	}
-	for (int i = 1; i <= pow(2, N); i++) go(i);
+	for (int i = 1; i <= (1 << N); i++) go(i);
 
 	if (idx.empty()) cout << "-1";
 	else {
