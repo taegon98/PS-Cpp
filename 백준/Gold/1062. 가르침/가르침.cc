@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
 int N, K, ret = -987654321;
 vector<string> str;
 string tmp;
@@ -13,8 +12,8 @@ void go() {
 		bool ok = true;
 		for (int i = 4; i < s.size() - 4; i++) {
 			if (!alpha[s[i] - 'a']) {
-				ok = false; break;
-			}
+                ok = false; break;
+            }
 		}
 		if (ok) cnt++;
 	}
@@ -40,20 +39,9 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		cin >> tmp; str.push_back(tmp);
 	}
+	alpha[0] = 1; alpha[2] = 1; alpha[8] = 1; alpha[13] = 1; alpha[19] = 1;
 
-	alpha[0] = 1;
-	alpha[2] = 1;
-	alpha[8] = 1;
-	alpha[13] = 1;
-	alpha[19] = 1;
-
-	if (K < 5) {
-		cout << 0;
-	}
-	else if (K == 5) {
-		go();
-		cout << ret;
-	}
+	if (K < 5) cout << 0;
 	else {
 		combi(0, 0);
 		cout << ret;
