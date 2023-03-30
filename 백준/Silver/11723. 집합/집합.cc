@@ -1,29 +1,25 @@
 #include <iostream>
 using namespace std;
-int N, tmp;
+int N, num, tmp;
 string str;
-bool digit[24] = { false };
-
 int main() {
+	ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 	cin >> N;
-	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-	for (int j = 0; j < N; j++) {
+	for (int i = 0; i < N; i++){
 		cin >> str;
 		if (str == "all") {
-			for (int i = 1; i <= 20; i++) digit[i] = true;
-			continue;
+			num = (1 << 20) - 1; continue;
 		}
 		else if (str == "empty") {
-			for (int i = 1; i <= 20; i++) digit[i] = false;
-			continue;
+			num = 0; continue;
 		}
 		cin >> tmp;
-		if (str == "add") digit[tmp] = true;
-		else if (str == "check") cout << digit[tmp] << "\n";
-		else if (str == "remove") digit[tmp] = false;
-		else if (str == "toggle") {
-			if (digit[tmp]) digit[tmp] = false;
-			else digit[tmp] = true;
+		if (str == "add") num |= (1 << tmp - 1);
+		else if (str == "check") {
+			if (num & (1 << tmp - 1)) cout << "1\n";
+			else cout << "0\n";
 		}
+		else if (str == "remove") num &= ~(1 << tmp - 1);
+		else if (str == "toggle") num ^= (1 << tmp - 1);
 	}
 }
