@@ -62,36 +62,12 @@ void go(int sy, int sx, int s) {
 
 int main() {
 	cin >> K >> x >> y;
-	int ret = 0;
-	/*while (1) {
-		K /= 2;
-		ret++;
-		if (K == 1) break;
-	}*/
-	
 	y = pow(2, K) - y + 1;
 	graph[y][x] = -1;
 	go(1, 1, K);
 
-	/*for (int i = 1; i <= pow(2, K); i++) {
-		for (int j = 1; j <= pow(2, K); j++) {
-			if (graph[i][j] == 0) {
-				cout << "-1";
-				return 0;
-			}
-		}
-	}*/
-
 	for (int i = 1; i <= pow(2, K); i++) {
-		for (int j = 1; j <= pow(2, K); j++) {
-			/*if (graph[i][j] == -1) cout << 0 << " ";*/
-			if (j == pow(2, K)) {
-				cout << graph[i][j];
-			}
-			else
-				cout << graph[i][j] << " ";
-		}
+		for (int j = 1; j <= pow(2, K); j++) cout << graph[i][j] << " ";
 		cout << "\n";
 	}
 }
-	
