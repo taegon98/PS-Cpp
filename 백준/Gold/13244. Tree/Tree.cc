@@ -14,6 +14,7 @@ int go(int pos, vector<int> vec[1004], int depth) {
 }
 
 int main() {
+	ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 	cin >> T;
 	for (int tc = 0; tc < T; tc++) {
 		vector<int> v[1004];
