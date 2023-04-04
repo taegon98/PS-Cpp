@@ -1,19 +1,16 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
+#include <deque>
 using namespace std;
 int T, n;
 string p, tmp;
-
 int main() {
-	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+	ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 	cin >> T;
 	for (int tc = 1; tc <= T; tc++) {
-		int pointer = 0, pos = 0, left = 0, right, size;;
-		bool flag = true, print = true;
-		vector<int> v;
 		cin >> p >> n >> tmp;
+		bool flag = true, ok = true;
+		int pos = 1;
+		deque<int> dq;
 
 		while (1) {
 			if (pos == tmp.size() - 1) break;
@@ -24,42 +21,28 @@ int main() {
 				pos++;
 				ok = false;
 			}
-			if (!ok) v.push_back(t);
+			if (!ok) dq.push_back(t);
 			if (ok) pos++;
 		}
-		size = v.size();
-		right = v.size() - 1;
 		for (int i = 0; i < p.size(); i++) {
 			if (p[i] == 'R') {
-				if (flag) {
-					pointer = right; flag = false;
-				}
-				else {
-					pointer = left; flag = true;
-				}
+				if (flag) flag = false;
+				else flag = true;
 			}
-			else if (p[i] == 'D' and left > right) {
-				cout << "error\n"; print = false;
+			else if (p[i] == 'D' and !dq.size()) {
+				cout << "error\n"; ok = false;
 				break;
 			}
-			else if (p[i] == 'D' and flag) {
-				pointer++; left++; size--;
-			}
-			else if (p[i] == 'D' and !flag) {
-				pointer--; right--; size--;
-			}
+			else if (flag and p[i] == 'D') dq.pop_front();
+			else if (!flag and p[i] == 'D') dq.pop_back();
 		}
-		if (print and !size and left > right) cout << "[]\n";
-		else if (print and !v.empty()) {
-			int i = pointer;
+		if (ok and dq.empty()) cout << "[]\n";
+		else if (ok) {
+			int i;
 			cout << "[";
-			if (flag) {
-				for (; i < right; i++) cout << v[i] << ",";
-			}
-			else {
-				for (; i > left; i--) cout << v[i] << ",";
-			}
-			cout << v[i] << "]\n";
+			if (flag) for (i = 0; i < dq.size() - 1; i++) cout << dq[i] << ",";
+			else for (i = dq.size() - 1; i > 0; i--) cout << dq[i] << ",";
+			cout << dq[i] << "]\n";
 		}
 	}
 }
