@@ -1,40 +1,33 @@
 #include <iostream>
 #include <stack>
+#include <algorithm>
 #include <deque>
 using namespace std;
 string str, bomb;
-stack<char> s1, s2, s3;
+stack<char> s;
 deque<char> ret;
 
 int main() {
 	cin >> str >> bomb;
-	for (int i = 0; i < bomb.size(); i++) s2.push(bomb[i]);
+
 	for (int i = 0; i < str.size(); i++) {
 		bool ok = false;
-		s1.push(str[i]);
-		int cnt = 0;
-		while (s1.size() and s2.size() and s1.top() == s2.top()) {
-			s3.push(s1.top());
-			s1.pop(); s2.pop(); cnt++;
-			ok = true;
-		}
-		if (ok and cnt != bomb.size()) {
-			while (s3.size()) {
-				s1.push(s3.top());
-				s2.push(s3.top());
-				s3.pop();
+		s.push(str[i]);
+		if (s.size() >= bomb.size() and s.top() == bomb[bomb.size() - 1]) {
+			string tmp = "";
+			for (int i = 0; i < bomb.size(); i++) {
+				tmp += s.top(); s.pop();
 			}
-		}
-		else {
-			while (s3.size()) {
-				s2.push(s3.top()); s3.pop();
+			reverse(tmp.begin(), tmp.end());
+			if (tmp != bomb) {
+				for (int i = 0; i < bomb.size(); i++) s.push(tmp[i]);
 			}
 		}
 	}
-	if (!s1.size()) cout << "FRULA";
+	if (!s.size()) cout << "FRULA";
 	else {
-		while (s1.size()) {
-			ret.push_front(s1.top()); s1.pop();
+		while (s.size()) {
+			ret.push_front(s.top()); s.pop();
 		}
 		for (char ch : ret) cout << ch;
 	}
