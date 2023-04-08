@@ -2,23 +2,20 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-int N, a, b, t = 0;
+int N, s, t, ret;
 vector<pair<int, int>> v;
-bool cmp(pair<int, int>& a, pair<int, int>& b) {
-	return a.first < b.first;
-}
-
 int main() {
+	ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 	cin >> N;
 	for (int i = 0; i < N; i++) {
-		cin >> a >> b; v.push_back({ a,b });
+		cin >> s >> t;
+		v.push_back({ s,t });
 	}
-	sort(v.begin(), v.end(), cmp);
-	t = v[0].first;
-	for (int i = 0; i < N - 1; i++) {
-		int tmp = t + v[i].second;
-		if (tmp > v[i + 1].first) t = tmp;
-		else t = v[i + 1].first;
+	sort(v.begin(), v.end());
+	ret = v.front().first + v.front().second;
+	for (int i = 1; i < v.size(); i++) {
+		ret = max(v[i].first, ret);
+		ret += v[i].second;
 	}
-	cout << t + v[N - 1].second;
+	cout << ret;
 }
