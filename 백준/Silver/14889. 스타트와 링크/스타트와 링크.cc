@@ -1,12 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cmath>
 using namespace std;
-int N, temp;
+int N, temp, ret = 987654321;
 int arr[24][24];
 bool visited[24];
-vector<int> ret;
 
 void cal() {
 	vector<int> v1, v2;
@@ -26,7 +24,7 @@ void cal() {
 			tmp2 += (arr[v2[i]][v2[j]] + arr[v2[j]][v2[i]]);
 		}
 	}
-	ret.push_back(abs(tmp1 - tmp2));
+	ret = min(ret, abs(tmp1 - tmp2));
 }
 
 void go(int depth, int idx) {
@@ -53,6 +51,5 @@ int main() {
 		}
 	}
 	go(0, 1);
-	sort(ret.begin(), ret.end());
-	cout << ret[0] << "\n";
+	cout << ret << "\n";
 }
