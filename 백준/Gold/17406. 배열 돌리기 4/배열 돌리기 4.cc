@@ -72,16 +72,12 @@ int main() {
 	cin >> N >> M >> K;
 	vector<element> vv;
 	for (int i = 1; i <= N; i++) {
-		for (int j = 1; j <= M; j++) {
-			cin >> arr[i][j];
-		}
+		for (int j = 1; j <= M; j++) cin >> arr[i][j];
 	}
 	for (int i = 1; i <= K; i++) {
 		cin >> r >> c >> s;
-		e.y1 = r - s;
-		e.x1 = c - s;
-		e.y2 = r + s;
-		e.x2 = c + s;
+		e.y1 = r - s; e.x1 = c - s;
+		e.y2 = r + s; e.x2 = c + s;
 		v.push_back(e);
 	}
 	go(0, vv);
