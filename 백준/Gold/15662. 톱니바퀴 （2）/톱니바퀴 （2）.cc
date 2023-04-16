@@ -3,7 +3,6 @@
 using namespace std;
 int T, K, tmp, dir, ret, arr[1004][8], pointer[1004];
 vector<pair<int, int>> v;
-
 void go() {
 	for (pair<int, int> p : v) {
 		int check[1004] = { 0 };
@@ -37,7 +36,6 @@ void go() {
 			else if (check[i] == 1) pointer[i] = (pointer[i] + 7) % 8;
 		}
 	}
-	
 }
 
 int main() {
