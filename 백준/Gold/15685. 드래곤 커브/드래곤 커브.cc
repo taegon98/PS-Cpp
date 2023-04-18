@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int N, cur_y, cur_x, ret;
+int N, cur_y, cur_x, ret, dir;
 struct info {
 	int x, y, d, g;
 };
@@ -20,8 +20,7 @@ int main() {
 	for (int i = 0; i < v.size(); i++) {
 		vector<int> vv, s;
 		vv.push_back(v[i].d);
-		int dir = vv.back();
-		cur_y = v[i].y + dy[dir]; cur_x = v[i].x + dx[dir];
+		cur_y = v[i].y + dy[vv.back()]; cur_x = v[i].x + dx[vv.back()];
 		arr[cur_y][cur_x] = 1;
 
 		for (int j = 0; j < v[i].g; j++) {
