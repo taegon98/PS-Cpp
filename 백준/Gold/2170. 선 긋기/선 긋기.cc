@@ -15,8 +15,7 @@ int main() {
 	sort(v.begin(), v.end());
 	s = v[0].first; e = v[0].second;
 	for (int i = 1; i < v.size(); i++) {
-		if (v[i].first < e) e = v[i].second > e ? v[i].second : e;
-		else if (v[i].first == e) e = v[i].second;
+		if (v[i].first <= e) e = v[i].second > e ? v[i].second : e;
 		else if (v[i].first > e) {
 			ret += (e - s);
 			s = v[i].first; e = v[i].second;
