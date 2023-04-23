@@ -41,6 +41,7 @@ void go(int idx) {
 					visited[ny][nx] = 1;
  				}
 				go(i + 1);
+				ny = v[i].y; nx = v[i].x;
 				while (!tmp.empty()) {
 					ny = tmp.back().first; nx = tmp.back().second; tmp.pop_back();
 					arr[ny][nx] = '0';
@@ -50,25 +51,18 @@ void go(int idx) {
 		}
 		else if (v[i].num == '2') {
 			for (int j = 0; j < 2; j++) {
-				ny = v[i].y; nx = v[i].x;
-				while (1) {
-					ny += dy[j]; nx += dx[j];
-					if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-					if (arr[ny][nx] == '0' and !visited[ny][nx]) {
-						arr[ny][nx] = '#';
-						tmp.push_back({ ny,nx });
+				for (int k = 0; k < 3; k += 2) {
+					int nj = (j + k) % 4;
+					ny = v[i].y; nx = v[i].x;
+					while (1) {
+						ny += dy[nj]; nx += dx[nj];
+						if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
+						if (arr[ny][nx] == '0' and !visited[ny][nx]) {
+							arr[ny][nx] = '#';
+							tmp.push_back({ ny,nx });
+						}
+						visited[ny][nx] = 1;
 					}
-					visited[ny][nx] = 1;
-				}
-				ny = v[i].y; nx = v[i].x;
-				while (1) {
-					ny += dy[j + 2]; nx += dx[j + 2];
-					if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-					if (arr[ny][nx] == '0' and !visited[ny][nx]) {
-						arr[ny][nx] = '#';
-						tmp.push_back({ ny,nx });
-					}
-					visited[ny][nx] = 1;
 				}
 				go(i + 1);
 				ny = v[i].y; nx = v[i].x;
@@ -81,26 +75,18 @@ void go(int idx) {
 		}
 		else if (v[i].num == '3') {
 			for (int j = 0; j < 4; j++) {
-				ny = v[i].y; nx = v[i].x;
-				while (1) {
-					ny += dy[j]; nx += dx[j];
-					if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-					if (arr[ny][nx] == '0' and !visited[ny][nx]) {
-						arr[ny][nx] = '#';
-						tmp.push_back({ ny,nx });
+				for (int k = 0; k < 2; k++) {
+					int nj = (j + k) % 4;
+					ny = v[i].y; nx = v[i].x;
+					while (1) {
+						ny += dy[nj]; nx += dx[nj];
+						if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
+						if (arr[ny][nx] == '0' and !visited[ny][nx]) {
+							arr[ny][nx] = '#';
+							tmp.push_back({ ny,nx });
+						}
+						visited[ny][nx] = 1;
 					}
-					visited[ny][nx] = 1;
-				}
-				ny = v[i].y; nx = v[i].x;
-				while (1) {
-					int nj = (j + 1) % 4;
-					ny += dy[nj]; nx += dx[nj];
-					if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-					if (arr[ny][nx] == '0' and !visited[ny][nx]) {
-						arr[ny][nx] = '#';
-						tmp.push_back({ ny,nx });
-					}
-					visited[ny][nx] = 1;
 				}
 				go(i + 1);
 				ny = v[i].y; nx = v[i].x;
@@ -113,37 +99,18 @@ void go(int idx) {
 		}
 		else if (v[i].num == '4') {
 			for (int j = 0; j < 4; j++) {
-				ny = v[i].y; nx = v[i].x;
-				while (1) {
-					ny += dy[j]; nx += dx[j];
-					if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-					if (arr[ny][nx] == '0' and !visited[ny][nx]) {
-						arr[ny][nx] = '#';
-						tmp.push_back({ ny,nx });
+				for (int k = 0; k < 3; k++) {
+					int nj = (j + k) % 4;
+					ny = v[i].y; nx = v[i].x;
+					while (1) {
+						ny += dy[nj]; nx += dx[nj];
+						if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
+						if (arr[ny][nx] == '0' and !visited[ny][nx]) {
+							arr[ny][nx] = '#';
+							tmp.push_back({ ny,nx });
+						}
+						visited[ny][nx] = 1;
 					}
-					visited[ny][nx] = 1;
-				}
-				ny = v[i].y; nx = v[i].x;
-				while (1) {
-					int nj = (j + 1) % 4;
-					ny += dy[nj]; nx += dx[nj];
-					if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-					if (arr[ny][nx] == '0' and !visited[ny][nx]) {
-						arr[ny][nx] = '#';
-						tmp.push_back({ ny,nx });
-					}
-					visited[ny][nx] = 1;
-				}
-				ny = v[i].y; nx = v[i].x;
-				while (1) {
-					int nj = (j + 2) % 4;
-					ny += dy[nj]; nx += dx[nj];
-					if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-					if (arr[ny][nx] == '0' and !visited[ny][nx]) {
-						arr[ny][nx] = '#';
-						tmp.push_back({ ny,nx });
-					}
-					visited[ny][nx] = 1;
 				}
 				go(i + 1);
 				ny = v[i].y; nx = v[i].x;
@@ -153,7 +120,6 @@ void go(int idx) {
 					visited[ny][nx] = 0;
 				}
 			}
-
 		}
 		else if (v[i].num == '5' and true) {
 			for (int j = 0; j < 4; j++) {
