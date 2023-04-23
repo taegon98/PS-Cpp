@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-struct element {
-	int y, x, num;
-};
+struct element { int y, x, num; };
 int N, M, ret = 987654321;
 bool flag = true;
 char arr[10][10], visited[10][10];
@@ -37,16 +35,14 @@ void go(int idx) {
 					if (arr[ny][nx] == '0' and !visited[ny][nx]) {
 						arr[ny][nx] = '#';
 						tmp.push_back({ ny,nx });
+						visited[ny][nx] = 1;
 					}
-					visited[ny][nx] = 1;
  				}
 				go(i + 1);
-				ny = v[i].y; nx = v[i].x;
-				while (!tmp.empty()) {
-					ny = tmp.back().first; nx = tmp.back().second; tmp.pop_back();
-					arr[ny][nx] = '0';
-					visited[ny][nx] = 0;
+				for (pair<int, int> p : tmp) {
+					arr[p.first][p.second] = '0'; visited[p.first][p.second] = 0;
 				}
+				tmp.clear();
 			}
 		}
 		else if (v[i].num == '2') {
@@ -60,17 +56,15 @@ void go(int idx) {
 						if (arr[ny][nx] == '0' and !visited[ny][nx]) {
 							arr[ny][nx] = '#';
 							tmp.push_back({ ny,nx });
+							visited[ny][nx] = 1;
 						}
-						visited[ny][nx] = 1;
 					}
 				}
 				go(i + 1);
-				ny = v[i].y; nx = v[i].x;
-				while (!tmp.empty()) {
-					ny = tmp.back().first; nx = tmp.back().second; tmp.pop_back();
-					arr[ny][nx] = '0';
-					visited[ny][nx] = 0;
+				for (pair<int, int> p : tmp) {
+					arr[p.first][p.second] = '0'; visited[p.first][p.second] = 0;
 				}
+				tmp.clear();
 			}
 		}
 		else if (v[i].num == '3') {
@@ -84,17 +78,15 @@ void go(int idx) {
 						if (arr[ny][nx] == '0' and !visited[ny][nx]) {
 							arr[ny][nx] = '#';
 							tmp.push_back({ ny,nx });
+							visited[ny][nx] = 1;
 						}
-						visited[ny][nx] = 1;
 					}
 				}
 				go(i + 1);
-				ny = v[i].y; nx = v[i].x;
-				while (!tmp.empty()) {
-					ny = tmp.back().first; nx = tmp.back().second; tmp.pop_back();
-					arr[ny][nx] = '0';
-					visited[ny][nx] = 0;
+				for (pair<int, int> p : tmp) {
+					arr[p.first][p.second] = '0'; visited[p.first][p.second] = 0;
 				}
+				tmp.clear();
 			}
 		}
 		else if (v[i].num == '4') {
@@ -108,17 +100,15 @@ void go(int idx) {
 						if (arr[ny][nx] == '0' and !visited[ny][nx]) {
 							arr[ny][nx] = '#';
 							tmp.push_back({ ny,nx });
+							visited[ny][nx] = 1;
 						}
-						visited[ny][nx] = 1;
 					}
 				}
 				go(i + 1);
-				ny = v[i].y; nx = v[i].x;
-				while (!tmp.empty()) {
-					ny = tmp.back().first; nx = tmp.back().second; tmp.pop_back();
-					arr[ny][nx] = '0';
-					visited[ny][nx] = 0;
+				for (pair<int, int> p : tmp) {
+					arr[p.first][p.second] = '0'; visited[p.first][p.second] = 0;
 				}
+				tmp.clear();
 			}
 		}
 		else if (v[i].num == '5' and true) {
