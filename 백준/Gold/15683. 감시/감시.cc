@@ -4,7 +4,7 @@ using namespace std;
 struct element { int y, x, num; };
 int N, M, ret = 987654321;
 bool flag = true;
-char arr[10][10], visited[10][10];
+char arr[10][10];
 int dy[4] = { -1,0,1,0 }, dx[4] = { 0,1,0,-1 };
 element e;
 vector<element> v;
@@ -32,16 +32,13 @@ void go(int idx) {
 				while (1) {
 					ny += dy[j]; nx += dx[j];
 					if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-					if (arr[ny][nx] == '0' and !visited[ny][nx]) {
+					if (arr[ny][nx] == '0') {
 						arr[ny][nx] = '#';
 						tmp.push_back({ ny,nx });
-						visited[ny][nx] = 1;
 					}
  				}
 				go(i + 1);
-				for (pair<int, int> p : tmp) {
-					arr[p.first][p.second] = '0'; visited[p.first][p.second] = 0;
-				}
+				for (pair<int, int> p : tmp) arr[p.first][p.second] = '0';
 				tmp.clear();
 			}
 		}
@@ -53,17 +50,14 @@ void go(int idx) {
 					while (1) {
 						ny += dy[nj]; nx += dx[nj];
 						if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-						if (arr[ny][nx] == '0' and !visited[ny][nx]) {
+						if (arr[ny][nx] == '0') {
 							arr[ny][nx] = '#';
 							tmp.push_back({ ny,nx });
-							visited[ny][nx] = 1;
 						}
 					}
 				}
 				go(i + 1);
-				for (pair<int, int> p : tmp) {
-					arr[p.first][p.second] = '0'; visited[p.first][p.second] = 0;
-				}
+				for (pair<int, int> p : tmp) arr[p.first][p.second] = '0';
 				tmp.clear();
 			}
 		}
@@ -75,17 +69,14 @@ void go(int idx) {
 					while (1) {
 						ny += dy[nj]; nx += dx[nj];
 						if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-						if (arr[ny][nx] == '0' and !visited[ny][nx]) {
+						if (arr[ny][nx] == '0') {
 							arr[ny][nx] = '#';
 							tmp.push_back({ ny,nx });
-							visited[ny][nx] = 1;
 						}
 					}
 				}
 				go(i + 1);
-				for (pair<int, int> p : tmp) {
-					arr[p.first][p.second] = '0'; visited[p.first][p.second] = 0;
-				}
+				for (pair<int, int> p : tmp) arr[p.first][p.second] = '0';
 				tmp.clear();
 			}
 		}
@@ -97,17 +88,14 @@ void go(int idx) {
 					while (1) {
 						ny += dy[nj]; nx += dx[nj];
 						if (ny < 0 or nx < 0 or ny >= N or nx >= M or arr[ny][nx] == '6') break;
-						if (arr[ny][nx] == '0' and !visited[ny][nx]) {
+						if (arr[ny][nx] == '0') {
 							arr[ny][nx] = '#';
 							tmp.push_back({ ny,nx });
-							visited[ny][nx] = 1;
 						}
 					}
 				}
 				go(i + 1);
-				for (pair<int, int> p : tmp) {
-					arr[p.first][p.second] = '0'; visited[p.first][p.second] = 0;
-				}
+				for (pair<int, int> p : tmp) arr[p.first][p.second] = '0';
 				tmp.clear();
 			}
 		}
