@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
 using namespace std;
 int N, M, tmp, low = 1, mid, high = -987654321, ret;
