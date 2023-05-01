@@ -3,7 +3,7 @@ using namespace std;
 typedef long long ll;
 ll X, Y, Z, tmp_z, ret = 10987654321;
 int main() {
-	ll low = 0, mid, high = 100000000000;
+	ll low = 0, mid, high = 1000000000;
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie();
 	cin >> X >> Y;
 	Z = (Y * 100 / X);
