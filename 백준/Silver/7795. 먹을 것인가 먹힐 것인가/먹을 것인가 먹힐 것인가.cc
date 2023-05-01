@@ -15,8 +15,7 @@ int bin(int left, int right) {
 			if (num <= B[mid]) high = mid - 1;
 			else if (num > B[mid]) low = mid + 1;
 		}
-		if (mid < initial_value) cnt += (high + 1);
-		else if (mid >= initial_value) cnt += (high + 1);
+		cnt += (high + 1);
 	}
 	return cnt;
 }
