@@ -3,27 +3,13 @@
 #include <algorithm>
 using namespace std;
 vector<int> A, B;
-int T, N, M, tmp;
-
-int bin(int left, int right) {
-	int cnt = 0;
-	for (int num : A) {
-		int low = left, high = right, mid;
-		int initial_value = (low + high) / 2;
-		while (low <= high) {
-			mid = (low + high) / 2;
-			if (num <= B[mid]) high = mid - 1;
-			else if (num > B[mid]) low = mid + 1;
-		}
-		cnt += (high + 1);
-	}
-	return cnt;
-}
+int T, N, M, tmp, ret;
 
 int main() {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	cin >> T;
 	for (int tc = 1; tc <= T; tc++) {
+		ret = 0;
 		A.clear(); B.clear();
 		cin >> N >> M;
 		for (int i = 0; i < N; i++) {
@@ -37,6 +23,10 @@ int main() {
 		sort(A.begin(), A.end());
 		sort(B.begin(), B.end());
 
-		cout << bin(0, M - 1) << "\n"; //A기준 B 이분탐색
+		for (int num : A) {
+			auto pos = lower_bound(B.begin(), B.end(), num);
+			ret += (int)(pos - B.begin());
+		}
+		cout << ret << "\n";
 	}
 }
