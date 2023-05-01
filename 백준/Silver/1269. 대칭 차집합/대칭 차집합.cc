@@ -22,8 +22,6 @@ int main() {
 	v1.clear(); v2.clear();
 	for (auto num : s1) v1.push_back(num);
 	for (auto num : s2) v2.push_back(num);
-	sort(v1.begin(), v1.end());
-	sort(v2.begin(), v2.end());
 	
 	for (int target : v1) {
 		if (!binary_search(v2.begin(), v2.end(), target)) ret++;
