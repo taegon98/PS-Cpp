@@ -16,9 +16,7 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		int len = 1;
 		for (int j = 0; j < i; j++) {
-			if (v[j] < v[i]) {
-				len = max(len, dp[j] + 1);
-			}
+			if (v[j] < v[i]) len = max(len, dp[j] + 1);
 		}
 		dp[i] = len;
 		if (ret < dp[i]) {
@@ -27,12 +25,12 @@ int main() {
 		}
 	}
 	cout << ret << "\n";
-	tmp = --ret;
+	ret--;
 	v_ret.push_back(v[idx]);
 	for (int i = idx; i >= 0; i--) {
-		if (dp[i] == tmp) {
+		if (dp[i] == ret) {
 			v_ret.push_back(v[i]);
-			tmp--;
+			ret--;
 		}
 	}
 	reverse(v_ret.begin(), v_ret.end());
