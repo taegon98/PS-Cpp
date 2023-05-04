@@ -9,11 +9,12 @@ vector<pair<int, int>> v;
 int main() {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	cin >> n;
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < 1000004; i++) dp[i] = -2e9;
+	for (int i = 0; i < n; i++) { 
 		cin >> target;
 		auto p = lower_bound(dp, dp + len, target);
 		int pos = p - dp;
-		if (*p == 0) len++;
+		if (*p == -2e9) len++;
 		*p = target;
 		v.push_back({ target,pos + 1 });
 	}
