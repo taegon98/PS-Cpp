@@ -12,7 +12,7 @@ int main() {
 	}
 	else {
 		for (int i = 0; i < M; i++) cin >> arr[i];
-		ll low = 1, high = 9e15, mid;
+		ll low = 1, high = 9e12, mid;
 		while (low <= high) {
 			mid = (low + high) / 2;
 			ll cnt = M;
