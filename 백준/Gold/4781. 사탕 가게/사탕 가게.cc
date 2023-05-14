@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -11,7 +10,7 @@ int main() {
 		scanf("%d %d.%d", &n, &m1, &m2);
 		if (n == 0) break;
 		int M = m1 * 100 + m2;
-		
+
 		for (int i = 0; i < n; i++) {
 			scanf("%d %d.%d", &c, &p1, &p2);
 			int P = p1 * 100 + p2;
@@ -21,6 +20,6 @@ int main() {
 			}
 			ret = max(ret, dp[M]);
 		}
-		printf("%d\n", ret);
+		cout << ret << "\n";
 	}
 }
