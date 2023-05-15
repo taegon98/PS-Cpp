@@ -9,8 +9,7 @@ ll go(int n, int depth, int idx) {
 		else return 0;
 	}
 	if (dp[n][arr[idx]][depth]) return dp[n][arr[idx]][depth];
-	if (dp[n][arr[idx]][depth]) return dp[n][arr[idx]][depth];
-
+	
 	dp[n][arr[idx]][depth] += go(n + arr[idx], depth + 1, idx + 1);
 	dp[n][arr[idx]][depth] += go(n - arr[idx], depth + 1, idx + 1);
 	return dp[n][arr[idx]][depth];
