@@ -13,7 +13,7 @@ int go(int curr, int l, int r) {
 		dp[curr][l][r] = min(dp[curr][l][r], go(curr + 1, arr[curr + 1], r) + 1);
 	else if (abs(l - arr[curr + 1]) == 2 and arr[curr + 1] != r)
 		dp[curr][l][r] = min(dp[curr][l][r], go(curr + 1, arr[curr + 1], r) + 4);
-	else 
+	else if (arr[curr + 1] != r)
 		dp[curr][l][r] = min(dp[curr][l][r], go(curr + 1, arr[curr + 1], r) + 3);
 	if (r == 0 and arr[curr + 1] != l)
 		dp[curr][l][r] = min(dp[curr][l][r], go(curr + 1, l, arr[curr + 1]) + 2);
@@ -21,7 +21,7 @@ int go(int curr, int l, int r) {
 		dp[curr][l][r] = min(dp[curr][l][r], go(curr + 1, l, arr[curr + 1]) + 1);
 	else if (abs(r - arr[curr + 1]) == 2 and arr[curr + 1] != l)
 		dp[curr][l][r] = min(dp[curr][l][r], go(curr + 1, l, arr[curr + 1]) + 4);
-	else
+	else if (arr[curr + 1] != l)
 		dp[curr][l][r] = min(dp[curr][l][r], go(curr + 1, l, arr[curr + 1]) + 3);
 	return dp[curr][l][r];
 }
