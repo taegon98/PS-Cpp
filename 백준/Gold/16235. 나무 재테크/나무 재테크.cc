@@ -1,14 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cstring>
 using namespace std;
 vector<int> v;
 int N, M, K, y, x, age, ret, add[14][14];
 int dy[] = { -1,-1,-1,0,1,1,1,0 }, dx[] = { -1,0,1,1,1,0,-1,-1 };
-
-bool cmp(int& a, int& b) { return a < b; }
-
 struct element {
 	int food;
 	vector<int> v;
@@ -31,11 +27,10 @@ int main() {
 
 	for (int tc = 1; tc <= K; tc++) {
 		ret = 0;		
-
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++)
 				if (land[i][j].v.size()) {
-					sort(land[i][j].v.begin(), land[i][j].v.end(), cmp);
+					sort(land[i][j].v.begin(), land[i][j].v.end());
 				}
 		}
 
@@ -59,7 +54,6 @@ int main() {
 			}
 		}
 
-		
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
 				for (int k = 0; k < land[i][j].v.size(); k++) {
