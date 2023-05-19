@@ -4,7 +4,7 @@ int N, M, ret = -987654321, arr[54][54], dp[54][54], visited[54][54];
 int dy[] = { -1,1,0,0 }, dx[] = { 0,0,-1,1 };
 string s;
 
-int dfs(int y, int x, int depth) {
+int dfs(int y, int x) {
 	if (dp[y][x]) return dp[y][x];
 	for (int d = 0; d < 4; d++) {
 		int ny = y + dy[d] * arr[y][x];
@@ -16,7 +16,7 @@ int dfs(int y, int x, int depth) {
 			exit(0);
 		}
 		visited[ny][nx] = 1;
-		dp[y][x] = max(dp[y][x], 1 + dfs(ny, nx, depth + 1));
+		dp[y][x] = max(dp[y][x], 1 + dfs(ny, nx));
 		visited[ny][nx] = 0;
 	}
 	return dp[y][x];
@@ -33,5 +33,5 @@ int main() {
 		}
 	}
 	visited[0][0] = 1;
-	cout << dfs(0, 0, 0) + 1;
+	cout << dfs(0, 0) + 1;
 }
