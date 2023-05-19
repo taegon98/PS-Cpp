@@ -27,8 +27,5 @@ int main() {
 		for (int j = 1; j <= N; j++)
 			cin >> arr[i][j];
 	}
-	ret = go(1, 1, 1);
-	if (ret == INF) cout << 0;
-	else cout << ret;
-
+	cout << go(1, 1, 1);
 }
