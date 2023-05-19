@@ -1,10 +1,7 @@
 #include <iostream>
-#include <stack>
-#include <cstring>
 using namespace std;
 int N, M, ret = -987654321, arr[54][54], dp[54][54], visited[54][54];
 int dy[] = { -1,1,0,0 }, dx[] = { 0,0,-1,1 };
-stack<pair<int, int>> _stack;
 string s;
 
 int dfs(int y, int x, int depth) {
