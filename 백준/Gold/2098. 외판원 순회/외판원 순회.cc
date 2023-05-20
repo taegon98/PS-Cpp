@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 #define INF 987654321
-int N, arr[20][20], dp[1 << 20][20];
-
+int N, arr[18][18], dp[1 << 18][18];
 int go(int idx, int cur, int num) {
 	if (idx == N) {
 		if (arr[cur][1]) return arr[cur][1];
 		else return INF;
 	}
+
 	if (dp[num][cur]) return dp[num][cur];
-	dp[num][cur] = INF;
+	else dp[num][cur] = INF;
 	
 	for (int i = 0; i < N; i++) {
 		if (num & (1 << i)) continue;
