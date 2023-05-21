@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 #define INF 987654321
-int arr[14][14], dp[14][14][6][6][6][6][6];
+int arr[12][12], dp[12][12][6][6][6][6][6];
 
 bool check(int y, int x, int n) {
 	for (int i = y; i < y + n; i++) {
@@ -19,7 +19,7 @@ bool done() {
 }
 
 int go(int _1, int _2, int _3, int _4, int _5, int y, int x) {
-    if (_1 > 5 or _2 > 5 or _3 > 5 or _4 > 5 or _5 > 5) return INF;
+	if (_1 > 5 or _2 > 5 or _3 > 5 or _4 > 5 or _5 > 5) return INF;
 	if (done()) return 0;
 	if (dp[y][x][_1][_2][_3][_4][_5]) return dp[y][x][_1][_2][_3][_4][_5];
 	else dp[y][x][_1][_2][_3][_4][_5] = INF;
