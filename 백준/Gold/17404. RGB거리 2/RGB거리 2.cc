@@ -14,14 +14,11 @@ int go(int idx, int color) {
 	else dp[idx][color] = INF;
 
 	if (color != 0)
-		dp[idx][color] = min(
-			dp[idx][color], go(idx + 1, 0) + arr[idx][color]);
+		dp[idx][color] = min(dp[idx][color], go(idx + 1, 0) + arr[idx][color]);
 	if (color != 1)
-		dp[idx][color] = min(
-			dp[idx][color], go(idx + 1, 1) + arr[idx][color]);
+		dp[idx][color] = min(dp[idx][color], go(idx + 1, 1) + arr[idx][color]);
 	if (color != 2)
-		dp[idx][color] = min(
-			dp[idx][color], go(idx + 1, 2) + arr[idx][color]);
+		dp[idx][color] = min(dp[idx][color], go(idx + 1, 2) + arr[idx][color]);
 	return dp[idx][color];
 }
 
