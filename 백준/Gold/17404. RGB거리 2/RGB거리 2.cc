@@ -28,10 +28,9 @@ int main() {
 	for (int i = 1; i <= N; i++) {
 		cin >> arr[i][0] >> arr[i][1] >> arr[i][2];
 	}
-	start = 0; ret = min(ret, go(1, 0));
-	memset(dp, 0, sizeof(dp));
-	start = 1; ret = min(ret, go(1, 1));
-	memset(dp, 0, sizeof(dp));
-	start = 2; ret = min(ret, go(1, 2));
+	for (; start < 3; start++) {
+		ret = min(ret, go(1, start));
+		memset(dp, 0, sizeof(dp));
+	}
 	cout << ret;
 }
