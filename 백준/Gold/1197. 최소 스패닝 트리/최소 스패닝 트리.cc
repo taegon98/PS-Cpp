@@ -12,15 +12,11 @@ vector<element> v;
 bool cmp(element& a, element& b) { return a.w < b.w; }
 
 int find(int n) {
-	while (1) {
-		if (!parent[n]) return n;
-		else n = parent[n];
-	}
+	if (!parent[n]) return n;
+	else return parent[n] = find(parent[n]);
 }
 
-void Union(int a, int b) {
-	if (a >= b) parent[a] = b;
-	else parent[b] = a;
+void Union(int a, int b) { parent[a] = b; 
 }
 void kruskal() {
 	for (auto num : v) {
