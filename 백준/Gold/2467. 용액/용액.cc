@@ -9,12 +9,8 @@ int main() {
 	l = ret_l = 1, r = ret_r = N;
 	for (int i = 1; i <= N; i++) cin >> arr[i];
 	ret = arr[l] + arr[r];
-	if (N == 2) {
-		cout << arr[ret_l] << " " << arr[ret_r];
-		exit(0);
-	}
 	while (l < r) {
-		ll tmp = arr[l] + arr[r];
+        ll tmp = arr[l] + arr[r];
 		if (abs(tmp) < abs(ret)) {
 			ret = tmp;
 			ret_l = l; ret_r = r;
