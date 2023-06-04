@@ -15,21 +15,22 @@ priority_queue<pair<int, int>, vector<pair<int, int>>, compare> pq;
 void dijkstra(int n) {
 	pq.push({ n,0 });
 	dist[n] = 0;
-	while(pq.size()) {
+	while (pq.size()) {
 		int node = pq.top().first;
 		int weight = pq.top().second;
 		pq.pop();
-		
+
 		if (visited[node]) continue;
 		visited[node] = 1;
 
 		for (auto var : v[node]) {
+			if (visited[var.first]) continue;
 			if (dist[var.first] > var.second + weight) {
 				dist[var.first] = var.second + weight;
 				pq.push({ var.first, dist[var.first] });
 			}
 		}
-		
+
 	}
 }
 
