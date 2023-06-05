@@ -9,8 +9,8 @@ ll go(ll num, ll depth) {
 
 	if (dp[depth][num]) return dp[depth][num];
 
-	dp[depth][num] += go(num + 1, depth + 1) % 1000000000;
-	dp[depth][num] += go(num - 1, depth + 1) % 1000000000;
+	dp[depth][num] += go(num + 1, depth + 1);
+	dp[depth][num] += go(num - 1, depth + 1);
 	return dp[depth][num] % 1000000000;
 }
 
