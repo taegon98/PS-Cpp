@@ -8,7 +8,6 @@ vector<int> solution(vector<int> arr)
 {
     stack<int> s;
     vector<int> answer;
-    deque<int> dq;
     for (auto var : arr) {
         if (s.empty() or s.top() != var) s.push(var);
     }
