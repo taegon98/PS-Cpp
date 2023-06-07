@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 int N, ret, arr[16][16];
 pair<int, int> pos[16];
