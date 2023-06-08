@@ -18,7 +18,7 @@ string solution(string s, int n) {
         else if (var >= 97 and var <= 122) {
             if (num > 122) num = 97 + (num - 123);
         }
-        answer += char(num);
+        answer += num;
     }
     return answer;
 }
