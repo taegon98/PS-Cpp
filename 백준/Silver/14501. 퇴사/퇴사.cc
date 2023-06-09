@@ -28,8 +28,7 @@ int main() {
 		cin >> temp.first >> temp.second;
 		v.push_back(temp);
 	}
-	for (int i = 1; i < v.size(); i++)
-		go(i + v[i].first, v[i].second);
+	go(1, 0);
 	if (ret == -987654321) cout << 0;
 	else cout << ret;
 }
