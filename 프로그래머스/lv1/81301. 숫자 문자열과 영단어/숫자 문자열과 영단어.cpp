@@ -16,7 +16,6 @@ int solution(string s) {
             s.insert(idx, num[i]);
             idx = s.find(arr[i]);
         }
-        cout << s << "\n";
     }
     answer = stoi(s);
     return answer;
