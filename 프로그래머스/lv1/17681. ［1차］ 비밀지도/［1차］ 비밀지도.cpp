@@ -1,8 +1,5 @@
 #include <string>
 #include <vector>
-#include <iostream>
-#include <algorithm>
-
 using namespace std;
 
 vector<string> solution(int n, vector<int> arr1, vector<int> arr2) {
@@ -19,7 +16,6 @@ vector<string> solution(int n, vector<int> arr1, vector<int> arr2) {
             if (temp1[k] == '1' or temp2[k] == '1') temp += "#";
             else if (temp1[k] == '0' and temp2[k] == '0') temp += " ";
         }
-        
         answer.push_back(temp);
     }
     return answer;
