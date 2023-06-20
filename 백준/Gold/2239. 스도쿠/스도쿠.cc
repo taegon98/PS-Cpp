@@ -6,23 +6,6 @@ int ret, arr[10][10], visited1[10][10], visited2[10][10];
 vector<pair<int, int>> v;
 
 bool check() {
-	for (int i = 1; i <= 9; i++) {
-		int visited[10] = { 0 };
-		for (int j = 1; j <= 9; j++) {
-			if (!arr[i][j]) continue;
-			if (visited[arr[i][j]]) return false;
-			visited[arr[i][j]] = 1;
-		}
-	}
-
-	for (int i = 1; i <= 9; i++) {
-		int visited[10] = { 0 };
-		for (int j = 1; j <= 9; j++) {
-			if (!arr[j][i]) continue;
-			if (visited[arr[j][i]]) return false;
-			visited[arr[j][i]] = 1;
-		}
-	}
 	int row = 1, col = 1;
 	for (int i = 1; i <= 9; i++) {
 		int visited[10] = { 0 };
