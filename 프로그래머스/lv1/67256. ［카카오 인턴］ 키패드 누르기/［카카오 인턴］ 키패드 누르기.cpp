@@ -53,7 +53,7 @@ string solution(vector<int> numbers, string hand) {
         else {
             int a = Find(ly, lx, numbers[i]);
             int b = Find(ry, rx, numbers[i]);
-            if (a < b) {
+            if ((a == b and hand == "left") or a < b) {
                 answer += "L";
                 lx = 1;
                 if (numbers[i] == 2) ly = 0;
@@ -61,23 +61,7 @@ string solution(vector<int> numbers, string hand) {
                 if (numbers[i] == 8) ly = 2;
                 if (numbers[i] == 0) ly = 3;
             }
-            else if (a > b) {
-                answer += "R";
-                rx = 1;
-                if (numbers[i] == 2) ry = 0;
-                if (numbers[i] == 5) ry = 1;
-                if (numbers[i] == 8) ry = 2;
-                if (numbers[i] == 0) ry = 3;
-            }
-            else if (hand == "left") {
-                answer += "L";
-                lx = 1;
-                if (numbers[i] == 2) ly = 0;
-                if (numbers[i] == 5) ly = 1;
-                if (numbers[i] == 8) ly = 2;
-                if (numbers[i] == 0) ly = 3;
-            }
-            else if (hand == "right") {
+            else if ((a == b and hand == "right") or a > b) {
                 answer += "R";
                 rx = 1;
                 if (numbers[i] == 2) ry = 0;
