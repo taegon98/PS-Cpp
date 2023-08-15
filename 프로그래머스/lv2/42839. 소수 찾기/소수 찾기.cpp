@@ -27,9 +27,9 @@ void go(int depth, string s, int visited[8]) {
 int solution(string numbers) {
     str = numbers;
 
-    for (int i = 2; i <= pow(10000001, 0.5); i++) {
+    for (int i = 2; i <= sqrt(10000000); i++) {
         if (is_prime[i]) continue;
-        for (int j = i * 2; j < 10000001; j += i)
+        for (int j = i * 2; j <= 10000000; j += i)
             is_prime[j] = true;
     }
     
