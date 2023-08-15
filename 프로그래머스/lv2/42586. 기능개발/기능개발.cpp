@@ -10,9 +10,8 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
         q.push_back({progresses[i], speeds[i]});
     }
     
-    while(1) {
+    while(q.size()) {
         int cnt = 0;
-        if (!q.size()) break;
         for (int i = 0; i < q.size(); i++) {
             q[i].first += q[i].second;
         }
