@@ -9,15 +9,9 @@ int check(string s1, string s2) {
     int cnt = 0;
     for (int i = 0; i < s1.size(); i++) {
         if (s1[i] != s2[i]) cnt++;
+        if (cnt > 1) return cnt;
     }
     return cnt;
-}
-
-bool visit_check(int e) {
-    for (int i = 0; i < e; i++) {
-        if (!visited[i]) return true;
-    }
-    return false;
 }
 
 int go(string begin, string target, vector<string> words) {
