@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include <iostream>
+#include <algorithm>
 using namespace std;
 
 vector<int> solution(vector<int> answers) {
@@ -9,21 +9,20 @@ vector<int> solution(vector<int> answers) {
     int m2[] = {2, 1, 2, 3, 2, 4, 2, 5};
     int m3[] = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
     int p1 = 0, p2 = 0, p3 = 0;
-    int ret1 = 0, ret2 = 0, ret3 = 0, max_value = -987654321;
+    vector<int> v(3);
     for (auto var : answers) {
-        if (m1[p1] == var) ret1++;
-        if (m2[p2] == var) ret2++;
-        if (m3[p3] == var) ret3++;
+        if (m1[p1] == var) v[0]++;
+        if (m2[p2] == var) v[1]++;
+        if (m3[p3] == var) v[2]++;
         p1 = (p1 + 1) % 5;
         p2 = (p2 + 1) % 8;
         p3 = (p3 + 1) % 10;
-        max_value = max(ret1, ret2);
-        max_value = max(max_value, ret3);
     }
     
-    if (ret1 == max_value) answer.push_back(1);
-    if (ret2 == max_value) answer.push_back(2);
-    if (ret3 == max_value) answer.push_back(3);
+    int max_val = *max_element(v.begin(), v.end());
+    if (v[0] == max_val) answer.push_back(1);
+    if (v[1] == max_val) answer.push_back(2);
+    if (v[2] == max_val) answer.push_back(3);
     
     return answer;
 }
