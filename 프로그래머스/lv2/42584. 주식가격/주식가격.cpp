@@ -8,16 +8,11 @@ vector<int> solution(vector<int> prices) {
     deque<pair<int, int>> dq;
     
     for (int i = 0; i < prices.size(); i++) {
-        if (!dq.size()) dq.push_back({i, prices[i]});
-        else if (dq.size() and dq.back().second <= prices[i])
-            dq.push_back({i, prices[i]});
-        else {
-            while(dq.size() and dq.back().second > prices[i]) {
-                answer[dq.back().first] = i - dq.back().first;
-                dq.pop_back();
-            }
-            dq.push_back({i, prices[i]});
+        while(dq.size() and dq.back().second > prices[i]) {
+            answer[dq.back().first] = i - dq.back().first;
+            dq.pop_back();
         }
+        dq.push_back({i, prices[i]});
     }
     
     int idx = dq.back().first;
