@@ -11,7 +11,8 @@ int solution(int k, vector<int> tangerine) {
         v[var]++;
     }
     
-    sort(v.begin(), v.end(), greater());
+    int num = *max_element(tangerine.begin(), tangerine.end());
+    sort(v.begin(), v.begin() + num + 1, greater());
     
     while(1) {
         answer++;
