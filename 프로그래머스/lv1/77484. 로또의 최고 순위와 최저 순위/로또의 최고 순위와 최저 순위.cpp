@@ -2,17 +2,15 @@
 #include <vector>
 #include <map>
 #include <algorithm>
-#include <iostream>
+
 using namespace std;
-map<int, int> mp;
-map<int, int> ans;
+map<int, int> mp, ans;
 int _rank = 1, cnt, i;
 vector<int> solution(vector<int> lottos, vector<int> win_nums) {
     vector<int> answer;
     
-    for (int i = 6; i >= 1; i--) {
+    for (int i = 6; i >= 1; i--)
         ans[i] = _rank++;
-    }
     ans[0] = 6;
     
     for (auto var : win_nums) mp[var] = 1;
