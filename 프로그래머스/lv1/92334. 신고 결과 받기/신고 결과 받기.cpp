@@ -2,9 +2,7 @@
 #include <vector>
 #include <map>
 using namespace std;
-map<string, int> mp;
-map<string, int> check;
-map<string, int> info;
+map<string, int> mp, check, info;
 vector<int> answer;
 vector<string> v[1001];
 
