@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include <deque>
-#include <iostream>
 using namespace std;
 deque<string> dq;
 int idx;
