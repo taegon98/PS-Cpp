@@ -1,6 +1,5 @@
 #include <string>
 #include <map>
-#include <iostream>
 using namespace std;
 int arr[12][12], visited[12][12][5], cur_y = 6, cur_x = 6;
 int dy[] = {-1, 1, 0, 0}, dx[] = {0, 0, -1, 1};
@@ -41,7 +40,6 @@ int solution(string dirs) {
             answer++;
         }
         cur_y = ny; cur_x = nx;
-        cout << cur_y <<"," <<cur_x <<"\n";
     }
     return answer;
 }
