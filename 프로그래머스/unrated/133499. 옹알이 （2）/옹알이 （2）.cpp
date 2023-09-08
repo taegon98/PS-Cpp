@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <iostream>
 using namespace std;
 string str[] = {"aya", "ye", "woo", "ma"};
 
@@ -20,7 +19,6 @@ int check(string s) {
         }
         tot += cnt;
     }
-    cout << tot <<" : ";
     return tot;
 }
 
@@ -29,7 +27,6 @@ int solution(vector<string> babbling) {
     
     for (int i = 0; i < babbling.size(); i++) {
         if (check(babbling[i]) == babbling[i].size()) answer++;
-        cout << answer <<"\n";
     }
     
     return answer;
