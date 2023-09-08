@@ -19,10 +19,9 @@ string solution(string number, int k) {
                 break;
             }
         }
-        s.push(number[i]);
         if (!ok) break;
+        s.push(number[i]); 
     }
-    i++;
     
     while(s.size()) {
         answer += s.top();
@@ -30,8 +29,7 @@ string solution(string number, int k) {
     }
     reverse(answer.begin(), answer.end());
     
-    if (i < number.size()) 
-        answer += (number.substr(i));
+    answer += (number.substr(i));
     
     while (cnt < k) {
         answer.pop_back();
