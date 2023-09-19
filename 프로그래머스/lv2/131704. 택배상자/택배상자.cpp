@@ -7,11 +7,9 @@ stack<int> s;
 deque<int> dq;
 int solution(vector<int> order) {
     int answer = 0;
-    int cur = 0, tot = order.size();
+    int cur = 0;
 
-    for (int i = 1; i <= tot; i++) {
-        dq.push_back(i);
-    }
+    for (int i = 1; i <= order.size(); i++) dq.push_back(i);
     
     while(dq.size()) {
         int target = order[cur++];
