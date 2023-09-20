@@ -14,25 +14,15 @@ int bfs(int x, int y, int n) {
         int temp = q.front();
         q.pop();
         
-        if (temp > y) return -1;
         if (temp == y) {
             return visited[temp];
         }
         
-        int nx = temp + n;
-        if (nx <= y and !visited[nx]) {
-            q.push(nx);
-            visited[nx] = visited[temp] + 1;
-        }
-        nx = temp * 2;
-        if (nx <= y and !visited[nx]) {
-            q.push(nx);
-            visited[nx] = visited[temp] + 1;
-        }
-        nx = temp * 3;
-        if (nx <= y and !visited[nx]) {
-            q.push(nx);
-            visited[nx] = visited[temp] + 1;
+        for (auto var : {temp + n, temp * 2, temp * 3}) {
+            if (var <= y and !visited[var]) {
+                q.push(var);
+                visited[var] = visited[temp] + 1;
+            }
         }
     }
     return -1;
