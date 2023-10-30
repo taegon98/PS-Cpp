@@ -35,7 +35,7 @@ void go(int idx, int cur_depth, int depth) {
 	for (int i = idx; i <= N; i++) {
 		if (visited[i]) continue;
 		visited[i] = 1;
-		go(i, cur_depth + 1, depth);
+		go(i + 1, cur_depth + 1, depth);
 		visited[i] = 0;
 	}
 }
