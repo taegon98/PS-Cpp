@@ -24,7 +24,7 @@ int main() {
             ret = abs(temp);
         }
 
-        if (temp <= 0) l++;
+        if (temp < 0) l++;
         else r--;
     }
     cout << ret_l << " " << ret_r;
