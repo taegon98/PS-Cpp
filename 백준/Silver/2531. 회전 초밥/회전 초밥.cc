@@ -19,7 +19,7 @@ int main() {
 	ret = max(ret, (int)mp.size());
 
 	for (int i = 0; i < N; i++) {
-		bool flag = false;
+		int temp = 0;
 		mp[arr[l]]--;
 		if (!mp[arr[l]]) mp.erase(arr[l]);
 
@@ -28,12 +28,9 @@ int main() {
 
 		mp[arr[r]]++;
 
-		if (mp.find(c) == mp.end()) {
-			mp[c] = 1;
-			flag = true;
-		}
-		ret = max(ret, (int)mp.size());
-		if (flag) mp.erase(c);
+		if (mp.find(c) == mp.end()) temp++;
+
+		ret = max(ret, (int)mp.size() + temp);
 	}
 	cout << ret;
 }
