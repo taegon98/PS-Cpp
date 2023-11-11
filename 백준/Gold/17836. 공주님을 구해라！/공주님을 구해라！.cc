@@ -47,7 +47,7 @@ void go() {
 
 			if (ny < 0 or nx < 0 or ny >= N or nx >= M) continue;
 			if (arr[ny][nx] == 1) continue;
-			if (visited[ny][nx] != 0 and visited[ny][nx] <= visited[y][x] + 1) continue;
+			if (visited[ny][nx]) continue;
 
 			if (arr[ny][nx] == 2) {
 				no_wall(ny, nx, visited[y][x]);
