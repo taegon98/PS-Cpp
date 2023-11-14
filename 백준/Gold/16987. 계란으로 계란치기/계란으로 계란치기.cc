@@ -18,18 +18,18 @@ void go(int cur) {
 		check();
 		return;
 	}
-		
+
 	for (int i = 0; i < N; i++) {
-		if (i == cur) continue;
-		if (v[i].first <= 0) continue;
-		if (v[cur].first <= 0) go(cur + 1);
-		else {
-			v[cur].first -= v[i].second;
-			v[i].first -= v[cur].second;
+		if (v[cur].first <= 0) {
 			go(cur + 1);
-			v[cur].first += v[i].second;
-			v[i].first += v[cur].second;
+			continue;
 		}
+		if (i == cur or v[i].first <= 0) continue;
+		v[cur].first -= v[i].second;
+		v[i].first -= v[cur].second;
+		go(cur + 1);
+		v[cur].first += v[i].second;
+		v[i].first += v[cur].second;
 	}
 	check();
 }
