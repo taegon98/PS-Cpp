@@ -12,25 +12,20 @@ void split(string s) {
 	v1.clear(); v2.clear();
 
 	while (s.size()) {
-		int pos1, pos2, pos;
+		int pos = -987654321;
 
-		pos1 = s.find('+');
-		pos2 = s.find('-');
+		for (int i = 0; i < s.size(); i++) {
+			if (s[i] == '+' or s[i] == '-') {
+				pos = i;
+				break;
+			}
+		}
 		
-		if (pos1 == string::npos and pos2 == string::npos) {
+		if (pos == -987654321) {
 			v1.push_back(stoi(s));
 			return;
 		}
 
-		if (pos1 != string::npos and pos2 != string::npos) {
-			pos = min(pos1, pos2);
-		}
-		else if (pos1 == string::npos) {
-			pos = pos2;
-		}
-		else if (pos2 == string::npos) {
-			pos = pos1;
-		}
 		v1.push_back(stoi(s.substr(0, pos)));
 		v2.push_back(s[pos]);
 		s = s.substr(pos + 1);
