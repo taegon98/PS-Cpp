@@ -51,7 +51,7 @@ int main() {
             }
             else if (v[l] + v[r] == n) {
                 ret_l = l, ret_r = r;
-                l++;
+                r--;
             }
         }
 
