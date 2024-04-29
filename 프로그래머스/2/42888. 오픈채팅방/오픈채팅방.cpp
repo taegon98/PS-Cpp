@@ -30,10 +30,11 @@ vector<string> solution(vector<string> record) {
             if (isExist[temp[1]]) {
                 isName[temp[1]] = temp[2];
             }
+            else {
+                isExist[temp[1]] = 1;
+            }
             
-            isExist[temp[1]] = 1;
             isName[temp[1]] = temp[2];
-
             string s = temp[1] + "님이 들어왔습니다.";
             answer.push_back(s);
         }
