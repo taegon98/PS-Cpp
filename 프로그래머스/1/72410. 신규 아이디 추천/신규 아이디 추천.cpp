@@ -4,7 +4,7 @@ using namespace std;
 
 string step_1(string id) {
     for (int i = 0; i < id.size(); i++) {
-        if (id[i] >= 65 and id[i] <= 90) {
+        if (isupper(id[i])) {
             id[i] += 32;
         }
     }
@@ -15,8 +15,7 @@ string step_2(string id) {
     string temp = "";
     
     for (int i = 0; i < id.size(); i++) {
-        if ((id[i] >= 97 and id[i] <= 122) or
-            (id[i] >= 48 and id[i] <= 57) or
+        if (islower(id[i]) or isdigit(id[i]) or
             (id[i] == '-' or id[i] == '_' or id[i] == '.')) {
             temp += id[i];
         }
@@ -45,12 +44,12 @@ string step_3(string id) {
 }
 
 string step_4(string id) {
-    if (id[0] == '.') {
+    if (id.front() == '.') {
         id = id.substr(1);
     }
     
-    if (id[id.size() - 1] == '.') {
-        id = id.substr(0, id.size() - 1);
+    if (id.back() == '.') {
+        id.pop_back();
     }
     return id;
 }
@@ -64,8 +63,8 @@ string step_6(string id) {
     if (id.size() >= 16) {
         id = id.substr(0, 15);
         
-        if (id[id.size() - 1] == '.') {
-            id = id.substr(0, id.size() - 1);
+        if (id.back() == '.') {
+            id.pop_back();
         }
     }
     return id;
@@ -73,10 +72,8 @@ string step_6(string id) {
 
 string step_7(string id) {
     if (id.size() <= 2) {
-        char ch = id[id.size() - 1];
-        
         while(id.size() < 3) {
-            id += ch;
+            id += id.back();
         }
     }
     return id;
