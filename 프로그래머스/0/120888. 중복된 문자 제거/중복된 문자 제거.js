@@ -1,7 +1,4 @@
 function solution(my_string) {
-    let answer = "";
-    Array.from(my_string).map(v => {
-        if (!answer.includes(v)) answer += v;
-    });
+    let answer = [...new Set(my_string)].join("");
     return answer;
 }
